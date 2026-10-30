@@ -1,8 +1,9 @@
 const attempts = {};
 
-function canLogin(username) {
-  attempts[username] = (attempts[username] || 0) + 1;
-  return attempts[username] <= 5;
+function canLogin(ip, username) {
+  const key = ip;
+  attempts[key] = (attempts[key] || 0) + 1;
+  return attempts[key] <= 10;
 }
 
 module.exports = { canLogin };
